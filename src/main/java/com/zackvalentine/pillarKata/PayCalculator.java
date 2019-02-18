@@ -20,6 +20,9 @@ public class PayCalculator {
         }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
+        if(!this.endTime.isAfter(this.startTime)) {
+            throw new IOException("End time must be after start time");
+        }
     }
 
     public LocalDateTime getStartTime() {
