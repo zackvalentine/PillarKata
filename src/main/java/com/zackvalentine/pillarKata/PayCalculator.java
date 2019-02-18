@@ -14,10 +14,10 @@ public class PayCalculator {
     private final LocalDate secondDay = firstDay.plusDays(1);
 
     public PayCalculator(int startHour, int endHour) throws IOException {
-        if(startHour > 4 && startHour < 17) {
+        if(isTimeOutOfBounds(startHour)) {
             throw new IOException("Invalid start time");
         }
-        if(endHour > 4 && endHour < 17) {
+        if(isTimeOutOfBounds(endHour)) {
             throw new IOException("Invalid end time");
         }
         this.startTime = buildLocalDateTime(startHour);
@@ -45,5 +45,9 @@ public class PayCalculator {
 
     protected int getShiftDuration() {
         return (int)(this.startTime.until(this.endTime, ChronoUnit.HOURS));
+    }
+
+    protected boolean isTimeOutOfBounds(int hour) {
+        return hour > 4 && hour < 17;
     }
 }
