@@ -78,4 +78,10 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(23, 2, "A");
         assertThat(payCalculator.getHoursInSecondRatePeriod(), is(equalTo(3)));
     }
+
+    @Test
+    public void calculatesPayForFirstRatePeriodForFamilyA() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 23, "A");
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(11 * 6)));
+    }
 }
