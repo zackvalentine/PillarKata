@@ -12,7 +12,11 @@ public class PayCalculator {
         } else {
             this.startTime = LocalDateTime.of(2019, 1, 2, startHour, 0);
         }
-        this.endTime = LocalDateTime.of(2019, 1, 1, endHour, 0);
+        if(endHour >= 17) {
+            this.endTime = LocalDateTime.of(2019, 1, 1, endHour, 0);
+        } else {
+            this.endTime = LocalDateTime.of(2019, 1, 2, endHour, 0);
+        }
     }
 
     public LocalDateTime getStartTime() {
