@@ -20,4 +20,10 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(17, 21);
         assertThat(payCalculator.getEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 21, 0))));
     }
+
+    @Test
+    public void conversionSetsStartHourToNextDayIfAfterMidnight() {
+        PayCalculator payCalculator = new PayCalculator(1, 4);
+        assertThat(payCalculator.getStartTime(), is(equalTo(LocalDateTime.of(2019, 1, 2, 1, 0))));
+    }
 }

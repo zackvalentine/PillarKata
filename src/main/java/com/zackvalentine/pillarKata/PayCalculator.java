@@ -7,7 +7,11 @@ public class PayCalculator {
     LocalDateTime endTime;
 
     public PayCalculator(int startHour, int endHour) {
-        this.startTime = LocalDateTime.of(2019, 1, 1, startHour, 0);
+        if(startHour >= 17) {
+            this.startTime = LocalDateTime.of(2019, 1, 1, startHour, 0);
+        } else {
+            this.startTime = LocalDateTime.of(2019, 1, 2, startHour, 0);
+        }
         this.endTime = LocalDateTime.of(2019, 1, 1, endHour, 0);
     }
 
