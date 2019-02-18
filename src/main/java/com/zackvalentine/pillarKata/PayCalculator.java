@@ -61,4 +61,8 @@ public class PayCalculator {
             return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
         }
     }
+
+    protected int getHoursInSecondRatePeriod() {
+        return 3;
+    }
 }
