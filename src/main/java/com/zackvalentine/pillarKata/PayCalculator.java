@@ -1,5 +1,6 @@
 package com.zackvalentine.pillarKata;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,7 +11,10 @@ public class PayCalculator {
     private final LocalDate firstDay = LocalDate.of(2019, 1, 1);
     private final LocalDate secondDay = firstDay.plusDays(1);
 
-    public PayCalculator(int startHour, int endHour) {
+    public PayCalculator(int startHour, int endHour) throws IOException {
+        if(startHour > 4 && startHour < 17) {
+            throw new IOException("Invalid start time");
+        }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
     }
