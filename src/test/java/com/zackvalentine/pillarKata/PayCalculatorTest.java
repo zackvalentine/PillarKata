@@ -11,7 +11,13 @@ import static org.hamcrest.CoreMatchers.*;
 public class PayCalculatorTest {
     @Test
     public void convertsStartHourToLocalDateTime() {
-        PayCalculator payCalculator = new PayCalculator(17);
+        PayCalculator payCalculator = new PayCalculator(17, 21);
         assertThat(payCalculator.getStartTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 17, 0))));
+    }
+
+    @Test
+    public void convertsEndHourToLocalDateTime() {
+        PayCalculator payCalculator = new PayCalculator(17, 21);
+        assertThat(payCalculator.getEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 21, 0))));
     }
 }
