@@ -54,4 +54,10 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(17, 21);
         assertThat(payCalculator.getShiftDuration(), is(equalTo(4)));
     }
+
+    @Test
+    public void getsShiftDurationForOtherValues() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 23);
+        assertThat(payCalculator.getShiftDuration(), is(equalTo(6)));
+    }
 }

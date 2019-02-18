@@ -1,9 +1,11 @@
 package com.zackvalentine.pillarKata;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 
 public class PayCalculator {
     LocalDateTime startTime;
@@ -42,6 +44,6 @@ public class PayCalculator {
     }
 
     protected int getShiftDuration() {
-        return 4;
+        return (int)(this.startTime.until(this.endTime, ChronoUnit.HOURS));
     }
 }
