@@ -1,7 +1,6 @@
 package com.zackvalentine.pillarKata;
 
 import java.io.IOException;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,10 +9,11 @@ import java.time.temporal.ChronoUnit;
 public class PayCalculator {
     LocalDateTime startTime;
     LocalDateTime endTime;
+    String familyLetter;
     private final LocalDate firstDay = LocalDate.of(2019, 1, 1);
     private final LocalDate secondDay = firstDay.plusDays(1);
 
-    public PayCalculator(int startHour, int endHour) throws IOException {
+    public PayCalculator(int startHour, int endHour, String familyLetter) throws IOException {
         if(isTimeOutOfBounds(startHour)) {
             throw new IOException("Invalid start time");
         }
@@ -22,6 +22,7 @@ public class PayCalculator {
         }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
+        this.familyLetter = familyLetter;
         if(!this.endTime.isAfter(this.startTime)) {
             throw new IOException("End time must be after start time");
         }
@@ -49,5 +50,9 @@ public class PayCalculator {
 
     protected boolean isTimeOutOfBounds(int hour) {
         return hour > 4 && hour < 17;
+    }
+
+    protected int getHoursInFirstRatePeriod() {
+        return 5;
     }
 }

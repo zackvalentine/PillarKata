@@ -12,52 +12,58 @@ import static org.hamcrest.CoreMatchers.*;
 public class PayCalculatorTest {
     @Test
     public void convertsStartHourToLocalDateTime() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(17, 21);
+        PayCalculator payCalculator = new PayCalculator(17, 21, "A");
         assertThat(payCalculator.getStartTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 17, 0))));
     }
 
     @Test
     public void convertsEndHourToLocalDateTime() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(17, 21);
+        PayCalculator payCalculator = new PayCalculator(17, 21, "A");
         assertThat(payCalculator.getEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 21, 0))));
     }
 
     @Test
     public void conversionSetsStartHourToNextDayIfAfterMidnight() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(1, 4);
+        PayCalculator payCalculator = new PayCalculator(1, 4, "A");
         assertThat(payCalculator.getStartTime(), is(equalTo(LocalDateTime.of(2019, 1, 2, 1, 0))));
     }
 
     @Test
     public void conversionSetsEndHourToNextDayIfAfterMidnight() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(1, 4);
+        PayCalculator payCalculator = new PayCalculator(1, 4, "A");
         assertThat(payCalculator.getEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 2, 4, 0))));
     }
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfStartTimeIsOutOfBounds() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(9, 20);
+        PayCalculator payCalculator = new PayCalculator(9, 20, "A");
     }
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfEndTimeIsOutOfBounds() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(1, 8);
+        PayCalculator payCalculator = new PayCalculator(1, 8, "A");
     }
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfEndTimeIsNotAfterStartTime() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(20, 17);
+        PayCalculator payCalculator = new PayCalculator(20, 17, "A");
     }
 
     @Test
     public void getsDurationOfShift() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(17, 21);
+        PayCalculator payCalculator = new PayCalculator(17, 21, "A");
         assertThat(payCalculator.getShiftDuration(), is(equalTo(4)));
     }
 
     @Test
     public void getsShiftDurationForOtherValues() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(17, 23);
+        PayCalculator payCalculator = new PayCalculator(17, 23, "A");
         assertThat(payCalculator.getShiftDuration(), is(equalTo(6)));
+    }
+
+    @Test
+    public void getsHoursInFirstRatePeriodForFamilyA() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 22, "A");
+        assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(5)));
     }
 }
