@@ -40,4 +40,8 @@ public class PayCalculator {
             return LocalDateTime.of(secondDay, LocalTime.of(hour, 0));
         }
     }
+
+    protected int getShiftDuration() {
+        return 4;
+    }
 }

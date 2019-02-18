@@ -48,4 +48,10 @@ public class PayCalculatorTest {
     public void throwsExceptionIfEndTimeIsNotAfterStartTime() throws IOException {
         PayCalculator payCalculator = new PayCalculator(20, 17);
     }
+
+    @Test
+    public void getsDurationOfShift() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 21);
+        assertThat(payCalculator.getShiftDuration(), is(equalTo(4)));
+    }
 }
