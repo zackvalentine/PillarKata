@@ -1,7 +1,6 @@
 package com.zackvalentine.pillarKata;
 
 import org.junit.Test;
-
 import java.time.LocalDateTime;
 
 import static org.junit.Assert.*;
