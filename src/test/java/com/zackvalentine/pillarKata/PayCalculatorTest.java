@@ -38,4 +38,9 @@ public class PayCalculatorTest {
     public void throwsExceptionIfStartTimeIsOutOfBounds() throws IOException {
         PayCalculator payCalculator = new PayCalculator(9, 20);
     }
+
+    @Test(expected = IOException.class)
+    public void throwsExceptionIfEndTimeIsOutOfBounds() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(1, 8);
+    }
 }

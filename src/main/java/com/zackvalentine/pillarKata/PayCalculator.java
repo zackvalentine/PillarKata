@@ -15,6 +15,9 @@ public class PayCalculator {
         if(startHour > 4 && startHour < 17) {
             throw new IOException("Invalid start time");
         }
+        if(endHour > 4 && endHour < 17) {
+            throw new IOException("Invalid end time");
+        }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
     }
