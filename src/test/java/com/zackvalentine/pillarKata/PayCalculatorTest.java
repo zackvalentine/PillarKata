@@ -90,4 +90,16 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(23, 4, "A");
         assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(20 * 5)));
     }
+
+    @Test
+    public void getsHoursInFirstRatePeriodForFamilyB() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 20, "B");
+        assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(3)));
+    }
+
+    @Test
+    public void getsHoursInFirstRatePeriodForFamilyBIfNotEqualToFamilyA() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 0, "B");
+        assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(5)));
+    }
 }
