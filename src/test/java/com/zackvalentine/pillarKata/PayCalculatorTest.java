@@ -126,4 +126,22 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(17, 21, "C");
         assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(4)));
     }
+
+    @Test
+    public void getsHoursInSecondRatePeriodForFamilyC() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(21, 4, "C");
+        assertThat(payCalculator.getHoursInSecondRatePeriod(), is(equalTo(7)));
+    }
+
+    @Test
+    public void calculatesPayForFirstRatePeriodForFamilyC() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 4, "C");
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(21 * 4)));
+    }
+
+    @Test
+    public void calculatesPayForSecondRatePeriodForFamilyC() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 4, "C");
+        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(15 * 7)));
+    }
 }
