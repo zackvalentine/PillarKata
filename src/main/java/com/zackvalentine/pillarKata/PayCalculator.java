@@ -79,6 +79,14 @@ public class PayCalculator {
         }
     }
 
+    protected int getHoursInThirdRatePeriod() {
+        if(this.startTime.isAfter(this.family.getSecondPeriodEndTime())) {
+            return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
+        } else {
+            return (int) this.family.getSecondPeriodEndTime().until(this.endTime, ChronoUnit.HOURS);
+        }
+    }
+
     protected int getPayForFirstRatePeriod() throws IOException {
         return this.family.getFirstPeriodRate() * this.getHoursInFirstRatePeriod();
     }
