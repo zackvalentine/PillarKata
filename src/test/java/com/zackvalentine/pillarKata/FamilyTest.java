@@ -17,4 +17,13 @@ public class FamilyTest {
         assertThat(Family.FAMILYA.getFirstPeriodRate(), is(equalTo(15)));
         assertThat(Family.FAMILYA.getSecondPeriodRate(), is(equalTo(20)));
     }
+
+    @Test
+    public void familyBValues() {
+        assertThat(Family.FAMILYB.getValue(), is(equalTo("B")));
+        assertThat(Family.FAMILYB.getFirstPeriodEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 1, 22, 0))));
+        assertThat(Family.FAMILYB.getSecondPeriodEndTime(), is(equalTo(LocalDateTime.of(2019, 1, 2, 0, 0))));
+        assertThat(Family.FAMILYB.getFirstPeriodRate(), is(equalTo(12)));
+        assertThat(Family.FAMILYB.getSecondPeriodRate(), is(equalTo(8)));
+    }
 }
