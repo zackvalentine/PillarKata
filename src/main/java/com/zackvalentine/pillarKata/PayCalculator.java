@@ -94,4 +94,8 @@ public class PayCalculator {
     protected int getPayForSecondRatePeriod() {
         return this.family.getSecondPeriodRate() * this.getHoursInSecondRatePeriod();
     }
+
+    protected int getPayForThirdRatePeriod() {
+        return this.family.getThirdPeriodRate() * this.getHoursInThirdRatePeriod();
+    }
 }

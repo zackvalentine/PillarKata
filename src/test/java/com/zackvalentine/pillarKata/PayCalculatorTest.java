@@ -150,4 +150,10 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(17, 4, "B");
         assertThat(payCalculator.getHoursInThirdRatePeriod(), is(equalTo(4)));
     }
+
+    @Test
+    public void calculatesPayForThirdRatePeriodForFamilyB() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(0, 4, "B");
+        assertThat(payCalculator.getPayForThirdRatePeriod(), is(equalTo(16 * 4)));
+    }
 }
