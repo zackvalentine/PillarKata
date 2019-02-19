@@ -18,6 +18,7 @@ public class PayCalculator {
     private final int familyAFirstPeriodRate = 11;
     private final int familyASecondPeriodRate = 20;
     private final LocalDateTime familyBFirstPeriodEndTime = LocalDateTime.of(firstDay, LocalTime.of(22, 0));
+    private final LocalDateTime familyBSecondPeriodEndTime = LocalDateTime.of(secondDay, LocalTime.of(0, 0));
 
     public PayCalculator(int startHour, int endHour, String familyLetter) throws IOException {
         if(isTimeOutOfBounds(startHour)) {
@@ -76,11 +77,20 @@ public class PayCalculator {
     }
 
     protected int getHoursInSecondRatePeriod() {
-        if(this.startTime.isAfter(this.familyAFirstPeriodEndTime)) {
-            return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
-        } else {
-            return (int) this.familyAFirstPeriodEndTime.until(this.endTime, ChronoUnit.HOURS);
+        if(this.familyLetter.equals("A")) {
+            if (this.startTime.isAfter(this.familyAFirstPeriodEndTime)) {
+                return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
+            } else {
+                return (int) this.familyAFirstPeriodEndTime.until(this.endTime, ChronoUnit.HOURS);
+            }
+        } else if(this.familyLetter.equals("B")) {
+            if(this.endTime.isAfter(this.familyBSecondPeriodEndTime)) {
+                return (int) this.startTime.until(this.familyBSecondPeriodEndTime, ChronoUnit.HOURS);
+            } else {
+                return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
+            }
         }
+        return 0;
     }
 
     protected int getPayForFirstRatePeriod() {
