@@ -29,6 +29,8 @@ public class PayCalculator {
             this.family = Family.FAMILYA;
         } else if(this.familyLetter.equals("B")) {
             this.family = Family.FAMILYB;
+        } else if(this.familyLetter.equals("C")) {
+            this.family = Family.FAMILYC;
         } else {
             throw new IOException("Invalid family");
         }
