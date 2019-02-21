@@ -70,6 +70,9 @@ public class PayCalculator {
     }
 
     protected int getHoursInFirstRatePeriod() {
+        if(!this.startTime.isBefore(this.family.getFirstPeriodEndTime())) {
+            return 0;
+        }
         if(this.endTime.isAfter(this.family.getFirstPeriodEndTime())) {
             return (int) this.startTime.until(this.family.getFirstPeriodEndTime(), ChronoUnit.HOURS);
         } else {
@@ -78,6 +81,9 @@ public class PayCalculator {
     }
 
     protected int getHoursInSecondRatePeriod() {
+        if(!this.endTime.isAfter(this.family.getFirstPeriodEndTime())) {
+            return 0;
+        }
         if(this.startTime.isAfter(this.family.getFirstPeriodEndTime())) {
             return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
         } else if(this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
@@ -88,6 +94,9 @@ public class PayCalculator {
     }
 
     protected int getHoursInThirdRatePeriod() {
+        if(!this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
+            return 0;
+        }
         if(this.startTime.isAfter(this.family.getSecondPeriodEndTime())) {
             return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
         } else {

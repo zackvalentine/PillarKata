@@ -182,8 +182,32 @@ public class PayCalculatorTest {
     }
 
     @Test
+    public void getsTotalPayForFamilyA() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 4, "A");
+        assertThat(payCalculator.getTotalPay(), is(equalTo((15*6)+(20*5))));
+    }
+
+    @Test
+    public void getsTotalPayForFamilyA_singleRatePeriod() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 20, "A");
+        assertThat(payCalculator.getTotalPay(), is(equalTo(15*3)));
+    }
+
+    @Test
     public void getsTotalPayForFamilyB() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "B");
         assertThat(payCalculator.getTotalPay(), is(equalTo((12*5)+(8*2)+(16*4))));
+    }
+
+    @Test
+    public void getsTotalPayForFamilyBOtherThanMaxShiftLength() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 3, "B");
+        assertThat(payCalculator.getTotalPay(), is(equalTo((12*5)+(8*2)+(16*3))));
+    }
+
+    @Test
+    public void getsTotalPayForFamilyC() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 4, "C");
+        assertThat(payCalculator.getTotalPay(), is(equalTo((21*4)+(15*7))));
     }
 }
