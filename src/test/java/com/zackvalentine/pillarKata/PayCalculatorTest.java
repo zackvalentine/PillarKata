@@ -122,6 +122,24 @@ public class PayCalculatorTest {
     }
 
     @Test
+    public void returnsZeroHoursInFirstRatePeriodWhenShiftHasNoHoursInPeriod() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(23, 4, "A");
+        assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(0)));
+    }
+
+    @Test
+    public void returnsZeroHoursInSecondRatePeriodWhenShiftEndsBeforePeriodStarts() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 19, "A");
+        assertThat(payCalculator.getHoursInSecondRatePeriod(), is(equalTo(0)));
+    }
+
+    @Test
+    public void returnsZeroHoursInSecondRatePeriodWhenShiftStartsAfterPeriodEnds() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(1, 4, "B");
+        assertThat(payCalculator.getHoursInSecondRatePeriod(), is(equalTo(0)));
+    }
+
+    @Test
     public void getsHoursInFirstRatePeriodForFamilyC() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 21, "C");
         assertThat(payCalculator.getHoursInFirstRatePeriod(), is(equalTo(4)));
