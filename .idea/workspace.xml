@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="57a907d6-d724-47dc-81e1-4e79a9440a8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/zackvalentine/pillarKata/PayCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/zackvalentine/pillarKata/PayCalculator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/com/zackvalentine/pillarKata/PayCalculatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/com/zackvalentine/pillarKata/PayCalculatorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/Family.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/Family.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/FamilyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/FamilyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -40,19 +38,19 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="43" />
-          <entry key="JAVA" value="15823" />
-          <entry key="PLAIN_TEXT" value="1037" />
+          <entry key="JAVA" value="17009" />
+          <entry key="PLAIN_TEXT" value="1133" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="150" column="78" selection-start-line="150" selection-start-column="78" selection-end-line="150" selection-end-column="78" />
+            <state relative-caret-position="315">
+              <caret line="162" column="80" selection-start-line="162" selection-start-column="80" selection-end-line="162" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="85" column="100" selection-start-line="85" selection-start-column="100" selection-end-line="85" selection-end-column="100" />
+            <state relative-caret-position="391">
+              <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1411#1412#0" expanded="true" />
@@ -92,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/Family.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
+            <state relative-caret-position="417">
               <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
               <folding>
                 <element signature="e#944#945#0" expanded="true" />
@@ -430,10 +428,10 @@
         <option value="$PROJECT_DIR$/src/main/java/PayCalculator.java" />
         <option value="$PROJECT_DIR$/src/test/java/PayCalculatorTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/FamilyTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/Family.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java" />
       </list>
     </option>
   </component>
@@ -444,9 +442,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="2552" />
     <option name="y" value="-8" />
-    <option name="width" value="2576" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -520,7 +518,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550554152651" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550721440610" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/test/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -564,7 +562,7 @@
       <option name="presentableId" value="Default" />
       <updated>1550525149369</updated>
       <workItem from="1550525155864" duration="5013000" />
-      <workItem from="1550547586203" duration="3542000" />
+      <workItem from="1550547586203" duration="5063000" />
     </task>
     <task id="LOCAL-00001" summary="Added conversion of input end hour to LocalDateTime">
       <created>1550526169471</created>
@@ -734,25 +732,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550553820944</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added the third rate period for Family B">
+      <created>1550554062011</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1550554062011</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added method to calculate pay for the third rate period">
+      <created>1550554169722</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1550554169722</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests - 2019.02.18 at 23h 12m 41s.xml">
-      <configuration name="All Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_Tests - 2019.02.18 at 23h 14m 54s.xml">
-      <configuration name="All Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_Tests - 2019.02.18 at 23h 15m 13s.xml">
-      <configuration name="All Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_Tests - 2019.02.18 at 23h 17m 15s.xml">
-      <configuration name="All Tests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_Tests - 2019.02.18 at 23h 17m 58s.xml">
-      <configuration name="All Tests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_Tests - 2019.02.18 at 23h 19m 06s.xml">
       <configuration name="All Tests" configurationId="JUnit" />
     </history-entry>
@@ -768,15 +765,30 @@
     <history-entry file="All_Tests - 2019.02.18 at 23h 23m 04s.xml">
       <configuration name="All Tests" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_Tests - 2019.02.18 at 23h 27m 30s.xml">
+      <configuration name="All Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_Tests - 2019.02.18 at 23h 29m 14s.xml">
+      <configuration name="All Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_Tests - 2019.02.20 at 21h 42m 12s.xml">
+      <configuration name="All Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_Tests - 2019.02.20 at 21h 51m 42s.xml">
+      <configuration name="All Tests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_Tests - 2019.02.20 at 21h 53m 33s.xml">
+      <configuration name="All Tests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8555000" />
+    <option name="totallyTimeSpent" value="10076000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <frame x="2552" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25198728" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3379531" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -786,7 +798,7 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -794,7 +806,7 @@
       <window_info anchor="bottom" id="Build" order="7" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -816,7 +828,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added conversion of input end hour to LocalDateTime" />
     <MESSAGE value="Start time will be set to the next day if it is before 5 p.m." />
     <MESSAGE value="End time will be set to the next day if it is before 5 p.m." />
     <MESSAGE value="Refactored time conversions" />
@@ -840,41 +851,15 @@
     <MESSAGE value="Added recognition of Family C when parsing inputs" />
     <MESSAGE value="Added tests for handling of newly added Family C" />
     <MESSAGE value="Added method to get hours in the third rate period for Family B" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method to get hours in the third rate period for Family B" />
+    <MESSAGE value="Added the third rate period for Family B" />
+    <MESSAGE value="Added method to calculate pay for the third rate period" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added method to calculate pay for the third rate period" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="85" column="100" selection-start-line="85" selection-start-column="100" selection-end-line="85" selection-end-column="100" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-            <element signature="e#1484#1485#0" expanded="true" />
-            <element signature="e#1514#1515#0" expanded="true" />
-            <element signature="e#1813#1814#0" expanded="true" />
-            <element signature="e#1895#1896#0" expanded="true" />
-            <element signature="e#1948#1949#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="150" column="78" selection-start-line="150" selection-start-column="78" selection-end-line="150" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,7 +875,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/Family.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
+        <state relative-caret-position="417">
           <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
           <folding>
             <element signature="e#944#945#0" expanded="true" />
@@ -907,6 +892,34 @@
             <element signature="e#1348#1349#0" expanded="true" />
             <element signature="e#2262#2263#0" expanded="true" />
             <element signature="e#2300#2301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zackvalentine/pillarKata/PayCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1443#1444#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1813#1814#0" expanded="true" />
+            <element signature="e#1895#1896#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/zackvalentine/pillarKata/PayCalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="162" column="80" selection-start-line="162" selection-start-column="80" selection-end-line="162" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
