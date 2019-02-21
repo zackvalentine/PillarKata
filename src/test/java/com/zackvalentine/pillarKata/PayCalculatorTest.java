@@ -228,4 +228,49 @@ public class PayCalculatorTest {
         PayCalculator payCalculator = new PayCalculator(17, 4, "C");
         assertThat(payCalculator.getTotalPay(), is(equalTo((21*4)+(15*7))));
     }
+
+    @Test
+    public void returnsShiftIsOutsideRatePeriodIfShiftEndsBeforePeriodStarts() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 18, "A");
+        assertThat(payCalculator.isShiftOutsideRatePeriod(
+                Family.FAMILYA.getSecondPeriodStartTime(),
+                Family.FAMILYA.getSecondPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftIsOutsideRatePeriodIfShiftEndsWhenPeriodStarts() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 23, "A");
+        assertThat(payCalculator.isShiftOutsideRatePeriod(
+                Family.FAMILYA.getSecondPeriodStartTime(),
+                Family.FAMILYA.getSecondPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftIsOutsideRatePeriodIfShiftStartsAfterPeriodEnds() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(0, 4, "A");
+        assertThat(payCalculator.isShiftOutsideRatePeriod(
+                Family.FAMILYA.getFirstPeriodStartTime(),
+                Family.FAMILYA.getFirstPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftIsOutsideRatePeriodIfShiftStartsWhenPeriodEnds() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(23, 4, "A");
+        assertThat(payCalculator.isShiftOutsideRatePeriod(
+                Family.FAMILYA.getFirstPeriodStartTime(),
+                Family.FAMILYA.getFirstPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftIsInsideRatePeriodIfTrue() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(21, 4, "A");
+        assertThat(payCalculator.isShiftOutsideRatePeriod(
+                Family.FAMILYA.getFirstPeriodStartTime(),
+                Family.FAMILYA.getFirstPeriodEndTime()),
+                is(false));
+    }
 }

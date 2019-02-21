@@ -99,6 +99,17 @@ public class PayCalculator {
         }
     }
 
+    protected boolean isShiftOutsideRatePeriod(LocalDateTime periodStart, LocalDateTime periodEnd) {
+        if((this.startTime.isAfter(periodEnd))
+                || this.startTime.isEqual(periodEnd)) {
+            return true;
+        } else if((this.endTime.isBefore(periodStart))
+            || this.endTime.isEqual(periodStart)) {
+            return true;
+        }
+        return false;
+    }
+
     protected int getHoursInThirdRatePeriod() {
         if(!this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
             return 0;
