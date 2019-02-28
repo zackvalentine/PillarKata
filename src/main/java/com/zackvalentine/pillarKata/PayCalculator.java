@@ -81,11 +81,8 @@ class PayCalculator {
         if((this.startTime.isAfter(periodEnd))
                 || this.startTime.isEqual(periodEnd)) {
             return true;
-        } else if((this.endTime.isBefore(periodStart))
-            || this.endTime.isEqual(periodStart)) {
-            return true;
-        }
-        return false;
+        } else return (this.endTime.isBefore(periodStart))
+                || this.endTime.isEqual(periodStart);
     }
 
     int getHoursInThirdRatePeriod() {
