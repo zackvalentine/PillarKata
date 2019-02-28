@@ -70,8 +70,7 @@ public class PayCalculator {
     }
 
     protected int getHoursInFirstRatePeriod() {
-        if(this.startTime.isAfter(this.family.getFirstPeriodEndTime())
-            || this.startTime.isEqual(this.family.getFirstPeriodEndTime())) {
+        if(isShiftOutsideRatePeriod(this.family.getFirstPeriodStartTime(), this.family.getFirstPeriodEndTime())) {
             return 0;
         }
         if(this.endTime.isAfter(this.family.getFirstPeriodEndTime())) {
@@ -82,21 +81,10 @@ public class PayCalculator {
     }
 
     protected int getHoursInSecondRatePeriod() {
-        if(this.endTime.isBefore(this.family.getFirstPeriodEndTime())
-            || this.endTime.isEqual(this.family.getFirstPeriodEndTime())) {
+        if(isShiftOutsideRatePeriod(this.family.getSecondPeriodStartTime(), this.family.getSecondPeriodEndTime())) {
             return 0;
         }
-        if(this.startTime.isAfter(this.family.getSecondPeriodEndTime())
-            || this.startTime.isEqual(this.family.getSecondPeriodEndTime())) {
-            return 0;
-        }
-        if(this.startTime.isAfter(this.family.getFirstPeriodEndTime())) {
-            return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
-        } else if(this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
-            return (int) this.family.getFirstPeriodEndTime().until(this.family.getSecondPeriodEndTime(), ChronoUnit.HOURS);
-        } else {
-            return (int) this.family.getFirstPeriodEndTime().until(this.endTime, ChronoUnit.HOURS);
-        }
+        return (int) getLaterTime(this.startTime, this.family.getSecondPeriodStartTime()).until(getEarlierTime(this.endTime, this.family.getSecondPeriodEndTime()), ChronoUnit.HOURS);
     }
 
     protected boolean isShiftOutsideRatePeriod(LocalDateTime periodStart, LocalDateTime periodEnd) {
@@ -131,5 +119,13 @@ public class PayCalculator {
 
     protected int getPayForThirdRatePeriod() {
         return this.family.getThirdPeriodRate() * this.getHoursInThirdRatePeriod();
+    }
+
+    protected LocalDateTime getEarlierTime(LocalDateTime firstTime, LocalDateTime secondTime) {
+        return firstTime.isBefore(secondTime) || firstTime.isEqual(secondTime) ? firstTime : secondTime;
+    }
+
+    protected LocalDateTime getLaterTime(LocalDateTime firstTime, LocalDateTime secondTime) {
+        return firstTime.isAfter(secondTime) || firstTime.isEqual(secondTime) ? firstTime : secondTime;
     }
 }

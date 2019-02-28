@@ -224,6 +224,18 @@ public class PayCalculatorTest {
     }
 
     @Test
+    public void getsTotalPayForFamilyB_allInSecondPeriod() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(23, 0, "B");
+        assertThat(payCalculator.getTotalPay(), is(equalTo(8*1)));
+    }
+
+    @Test
+    public void getsTotalPayForFamilyB_startsInSecondPeriod() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(23, 3, "B");
+        assertThat(payCalculator.getTotalPay(), is(equalTo((8*1)+(16*3))));
+    }
+
+    @Test
     public void getsTotalPayForFamilyC() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "C");
         assertThat(payCalculator.getTotalPay(), is(equalTo((21*4)+(15*7))));
@@ -272,5 +284,23 @@ public class PayCalculatorTest {
                 Family.FAMILYA.getFirstPeriodStartTime(),
                 Family.FAMILYA.getFirstPeriodEndTime()),
                 is(false));
+    }
+
+    @Test
+    public void determinesEarlierTime() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 19, "A");
+        assertThat(payCalculator.getEarlierTime(
+                LocalDateTime.of(2019, 1, 1, 17, 0),
+                LocalDateTime.of(2019, 1, 1, 19, 0)),
+                is(equalTo(LocalDateTime.of(2019, 1, 1, 17, 0))));
+    }
+
+    @Test
+    public void determinesLaterTime() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 19, "A");
+        assertThat(payCalculator.getLaterTime(
+                LocalDateTime.of(2019, 1, 1, 17, 0),
+                LocalDateTime.of(2019, 1, 1, 19, 0)),
+                is(equalTo(LocalDateTime.of(2019, 1, 1, 19, 0))));
     }
 }
