@@ -6,16 +6,15 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
-public class PayCalculator {
-    LocalDateTime startTime;
-    LocalDateTime endTime;
-    String familyLetter;
-    Family family;
+class PayCalculator {
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private Family family;
 
     private final LocalDate firstDay = LocalDate.of(2019, 1, 1);
     private final LocalDate secondDay = firstDay.plusDays(1);
 
-    public PayCalculator(int startHour, int endHour, String familyLetter) throws IOException {
+    PayCalculator(int startHour, int endHour, String familyLetter) throws IOException {
         if(isTimeOutOfBounds(startHour)) {
             throw new IOException("Invalid start time");
         }
@@ -24,36 +23,39 @@ public class PayCalculator {
         }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
-        this.familyLetter = familyLetter;
-        if(this.familyLetter.equals("A")) {
-            this.family = Family.FAMILYA;
-        } else if(this.familyLetter.equals("B")) {
-            this.family = Family.FAMILYB;
-        } else if(this.familyLetter.equals("C")) {
-            this.family = Family.FAMILYC;
-        } else {
-            throw new IOException("Invalid family");
+        switch (familyLetter) {
+            case "A":
+                this.family = Family.FAMILYA;
+                break;
+            case "B":
+                this.family = Family.FAMILYB;
+                break;
+            case "C":
+                this.family = Family.FAMILYC;
+                break;
+            default:
+                throw new IOException("Invalid family");
         }
         if(!this.endTime.isAfter(this.startTime)) {
             throw new IOException("End time must be after start time");
         }
     }
 
-    public int getTotalPay() {
+    int getTotalPay() {
         return getPayForFirstRatePeriod()
                 + getPayForSecondRatePeriod()
                 + getPayForThirdRatePeriod();
     }
 
-    public LocalDateTime getStartTime() {
+    LocalDateTime getStartTime() {
         return startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    LocalDateTime getEndTime() {
         return endTime;
     }
 
-    protected LocalDateTime buildLocalDateTime(int hour) {
+    private LocalDateTime buildLocalDateTime(int hour) {
         if(hour >= 17) {
             return LocalDateTime.of(firstDay, LocalTime.of(hour, 0));
         } else {
@@ -61,15 +63,15 @@ public class PayCalculator {
         }
     }
 
-    protected int getShiftDuration() {
+    int getShiftDuration() {
         return (int)(this.startTime.until(this.endTime, ChronoUnit.HOURS));
     }
 
-    protected boolean isTimeOutOfBounds(int hour) {
+    private boolean isTimeOutOfBounds(int hour) {
         return hour > 4 && hour < 17;
     }
 
-    protected int getHoursInFirstRatePeriod() {
+    int getHoursInFirstRatePeriod() {
         if(isShiftOutsideRatePeriod(this.family.getFirstPeriodStartTime(), this.family.getFirstPeriodEndTime())) {
             return 0;
         }
@@ -80,14 +82,14 @@ public class PayCalculator {
         }
     }
 
-    protected int getHoursInSecondRatePeriod() {
+    int getHoursInSecondRatePeriod() {
         if(isShiftOutsideRatePeriod(this.family.getSecondPeriodStartTime(), this.family.getSecondPeriodEndTime())) {
             return 0;
         }
         return (int) getLaterTime(this.startTime, this.family.getSecondPeriodStartTime()).until(getEarlierTime(this.endTime, this.family.getSecondPeriodEndTime()), ChronoUnit.HOURS);
     }
 
-    protected boolean isShiftOutsideRatePeriod(LocalDateTime periodStart, LocalDateTime periodEnd) {
+    boolean isShiftOutsideRatePeriod(LocalDateTime periodStart, LocalDateTime periodEnd) {
         if((this.startTime.isAfter(periodEnd))
                 || this.startTime.isEqual(periodEnd)) {
             return true;
@@ -98,7 +100,7 @@ public class PayCalculator {
         return false;
     }
 
-    protected int getHoursInThirdRatePeriod() {
+    int getHoursInThirdRatePeriod() {
         if(!this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
             return 0;
         }
@@ -109,23 +111,23 @@ public class PayCalculator {
         }
     }
 
-    protected int getPayForFirstRatePeriod() {
+    int getPayForFirstRatePeriod() {
         return this.family.getFirstPeriodRate() * this.getHoursInFirstRatePeriod();
     }
 
-    protected int getPayForSecondRatePeriod() {
+    int getPayForSecondRatePeriod() {
         return this.family.getSecondPeriodRate() * this.getHoursInSecondRatePeriod();
     }
 
-    protected int getPayForThirdRatePeriod() {
+    int getPayForThirdRatePeriod() {
         return this.family.getThirdPeriodRate() * this.getHoursInThirdRatePeriod();
     }
 
-    protected LocalDateTime getEarlierTime(LocalDateTime firstTime, LocalDateTime secondTime) {
+    LocalDateTime getEarlierTime(LocalDateTime firstTime, LocalDateTime secondTime) {
         return firstTime.isBefore(secondTime) || firstTime.isEqual(secondTime) ? firstTime : secondTime;
     }
 
-    protected LocalDateTime getLaterTime(LocalDateTime firstTime, LocalDateTime secondTime) {
+    LocalDateTime getLaterTime(LocalDateTime firstTime, LocalDateTime secondTime) {
         return firstTime.isAfter(secondTime) || firstTime.isEqual(secondTime) ? firstTime : secondTime;
     }
 }
