@@ -44,4 +44,9 @@ public class FamilyTest {
         assertThat(Family.FAMILYC.getFirstPeriodRate(), is(equalTo(21)));
         assertThat(Family.FAMILYC.getSecondPeriodRate(), is(equalTo(15)));
     }
+
+    @Test
+    public void toType_A() {
+        assertThat(Family.toType("A"), is(equalTo(Family.FAMILYA)));
+    }
 }

@@ -86,4 +86,8 @@ public enum Family {
     public int getThirdPeriodRate() {
         return thirdPeriodRate;
     }
+
+    public static Family toType(String letter) {
+        return FAMILYA;
+    }
 }
