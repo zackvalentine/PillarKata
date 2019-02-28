@@ -1,5 +1,6 @@
 package com.zackvalentine.pillarKata;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public enum Family {
@@ -88,6 +89,15 @@ public enum Family {
     }
 
     public static Family toType(String letter) {
-        return FAMILYA;
+        switch (letter) {
+            case "A":
+                return FAMILYA;
+            case "B":
+                return FAMILYB;
+            case "C":
+                return FAMILYC;
+            default:
+                return null;
+        }
     }
 }

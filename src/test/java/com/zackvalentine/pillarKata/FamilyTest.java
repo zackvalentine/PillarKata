@@ -49,4 +49,9 @@ public class FamilyTest {
     public void toType_A() {
         assertThat(Family.toType("A"), is(equalTo(Family.FAMILYA)));
     }
+
+    @Test
+    public void toType_B() {
+        assertThat(Family.toType("B"), is(equalTo(Family.FAMILYB)));
+    }
 }
