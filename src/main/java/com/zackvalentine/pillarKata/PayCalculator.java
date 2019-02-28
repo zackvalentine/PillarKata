@@ -23,19 +23,7 @@ class PayCalculator {
         }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
-        switch (familyLetter) {
-            case "A":
-                this.family = Family.FAMILYA;
-                break;
-            case "B":
-                this.family = Family.FAMILYB;
-                break;
-            case "C":
-                this.family = Family.FAMILYC;
-                break;
-            default:
-                throw new IOException("Invalid family");
-        }
+        this.family = Family.toType(familyLetter);
         if(!this.endTime.isAfter(this.startTime)) {
             throw new IOException("End time must be after start time");
         }
