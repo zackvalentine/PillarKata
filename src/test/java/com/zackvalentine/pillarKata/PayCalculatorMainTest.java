@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,11 +33,19 @@ public class PayCalculatorMainTest {
     }
 
     @Test
-    public void mainReturnsCalculatedValueFromInput() {
+    public void mainReturnsCalculatedValueFromInput() throws IOException {
         String[] args = {"17", "18", "A"};
 
         PayCalculatorMain.main(args);
 
-        assertThat(outContent.toString(), is(equalTo("8")));
+        assertThat(outContent.toString(), is(equalTo("15")));
+    }
+
+    @Test
+    public void mainReturnsCalculatedValueFromInputForMultipleHours() throws IOException {
+        String[] args = {"17", "19", "B"};
+        PayCalculatorMain.main(args);
+
+        assertThat(outContent.toString(), is(equalTo("24")));
     }
 }
