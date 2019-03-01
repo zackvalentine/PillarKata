@@ -16,10 +16,3 @@ dependencies {
     testCompile 'org.easymock:easymock:3.+'
 }
 
-task runApp(type:JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-
-    main = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "com.zackvalentine.pillarKata.PayCalculatorMain"
-
-}
-
