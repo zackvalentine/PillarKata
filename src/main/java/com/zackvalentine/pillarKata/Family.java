@@ -88,6 +88,10 @@ public enum Family {
         return thirdPeriodRate;
     }
 
+    public boolean isThirdRatePeriodAllowed() {
+        return false;
+    }
+
     public static Family toType(String letter) {
         switch (letter) {
             case "A":

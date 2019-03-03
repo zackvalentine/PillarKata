@@ -148,4 +148,9 @@ public class FamilyTest {
     public void toType_invalid() {
         assertThat(Family.toType("Invalid String"), is(nullValue()));
     }
+
+    @Test
+    public void returnsThirdRatePeriodNotAllowedForFamilyA() {
+        assertThat(Family.FAMILYA.isThirdRatePeriodAllowed(), is(false));
+    }
 }
