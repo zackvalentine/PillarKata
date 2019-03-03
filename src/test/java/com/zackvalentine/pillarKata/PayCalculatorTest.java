@@ -82,13 +82,13 @@ public class PayCalculatorTest {
     @Test
     public void calculatesPayForFirstRatePeriodForFamilyA() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 23, "A");
-        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(15 * 6)));
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(90)));
     }
 
     @Test
     public void calculatesPayForSecondRatePeriodForFamilyA() throws IOException {
         PayCalculator payCalculator = new PayCalculator(23, 4, "A");
-        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(20 * 5)));
+        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(100)));
     }
 
     @Test
@@ -154,13 +154,13 @@ public class PayCalculatorTest {
     @Test
     public void calculatesPayForFirstRatePeriodForFamilyC() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "C");
-        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(21 * 4)));
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(84)));
     }
 
     @Test
     public void calculatesPayForSecondRatePeriodForFamilyC() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "C");
-        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(15 * 7)));
+        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(105)));
     }
 
     @Test
@@ -172,55 +172,55 @@ public class PayCalculatorTest {
     @Test
     public void calculatesPayForFirstRatePeriodForFamilyB() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 22, "B");
-        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(12*5)));
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(60)));
     }
 
     @Test
     public void calculatesPayForFirstRatePeriodForFamilyBWhenShiftExtendsPastPeriodEnd() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 0, "B");
-        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(12*5)));
+        assertThat(payCalculator.getPayForFirstRatePeriod(), is(equalTo(60)));
     }
 
     @Test
     public void calculatesPayForSecondRatePeriodForFamilyB() throws IOException {
         PayCalculator payCalculator = new PayCalculator(22, 0, "B");
-        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(8*2)));
+        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(16)));
     }
 
     @Test
     public void calculatesPayForSecondRatePeriodForFamilyBWhenShiftExtendsPastPeriodEnd() throws IOException {
         PayCalculator payCalculator = new PayCalculator(22, 4, "B");
-        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(8*2)));
+        assertThat(payCalculator.getPayForSecondRatePeriod(), is(equalTo(16)));
     }
 
     @Test
     public void calculatesPayForThirdRatePeriodForFamilyB() throws IOException {
         PayCalculator payCalculator = new PayCalculator(0, 4, "B");
-        assertThat(payCalculator.getPayForThirdRatePeriod(), is(equalTo(16 * 4)));
+        assertThat(payCalculator.getPayForThirdRatePeriod(), is(equalTo(64)));
     }
 
     @Test
     public void getsTotalPayForFamilyA() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "A");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((15*6)+(20*5))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(190)));
     }
 
     @Test
     public void getsTotalPayForFamilyA_singleRatePeriod() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 20, "A");
-        assertThat(payCalculator.getTotalPay(), is(equalTo(15*3)));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(45)));
     }
 
     @Test
     public void getsTotalPayForFamilyB() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "B");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((12*5)+(8*2)+(16*4))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(140)));
     }
 
     @Test
     public void getsTotalPayForFamilyBOtherThanMaxShiftLength() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 3, "B");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((12*5)+(8*2)+(16*3))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(124)));
     }
 
     @Test
@@ -232,13 +232,13 @@ public class PayCalculatorTest {
     @Test
     public void getsTotalPayForFamilyB_startsInSecondPeriod() throws IOException {
         PayCalculator payCalculator = new PayCalculator(23, 3, "B");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((8)+(16*3))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(56)));
     }
 
     @Test
     public void getsTotalPayForFamilyC() throws IOException {
         PayCalculator payCalculator = new PayCalculator(17, 4, "C");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((21*4)+(15*7))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(189)));
     }
 
     @Test
