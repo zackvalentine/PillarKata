@@ -1,6 +1,5 @@
 package com.zackvalentine.pillarKata;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,19 +13,19 @@ class PayCalculator {
     private final LocalDate firstDay = LocalDate.of(2019, 1, 1);
     private final LocalDate secondDay = firstDay.plusDays(1);
 
-    PayCalculator(int startHour, int endHour, String familyLetter) throws IOException {
+    PayCalculator(int startHour, int endHour, String familyLetter) throws IllegalArgumentException {
         if(isTimeOutOfBounds(startHour)) {
-            throw new IOException("Invalid start time");
+            throw new IllegalArgumentException("Invalid start time");
         }
         if(isTimeOutOfBounds(endHour)) {
-            throw new IOException("Invalid end time");
+            throw new IllegalArgumentException("Invalid end time");
         }
         this.startTime = buildLocalDateTime(startHour);
         this.endTime = buildLocalDateTime(endHour);
-        this.family = Family.toType(familyLetter);
         if(!this.endTime.isAfter(this.startTime)) {
-            throw new IOException("End time must be after start time");
+            throw new IllegalArgumentException("End time must be after start time");
         }
+        this.family = Family.toType(familyLetter);
     }
 
     int getTotalPay() {
