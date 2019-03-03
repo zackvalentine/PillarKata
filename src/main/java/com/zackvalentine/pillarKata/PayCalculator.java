@@ -94,13 +94,13 @@ class PayCalculator {
     }
 
     int getHoursInThirdRatePeriod() {
-        if(!this.endTime.isAfter(this.family.getSecondPeriodEndTime())) {
+        if(!this.family.isThirdRatePeriodAllowed()) {
             return 0;
-        }
-        if(this.startTime.isAfter(this.family.getSecondPeriodEndTime())) {
-            return (int) this.startTime.until(this.endTime, ChronoUnit.HOURS);
+        } else if(isShiftOutsideRatePeriod(this.family.getThirdPeriodStartTime(), this.family.getThirdPeriodEndTime())) {
+            return 0;
         } else {
-            return (int) this.family.getSecondPeriodEndTime().until(this.endTime, ChronoUnit.HOURS);
+            return (int) getLaterTime(this.startTime, this.family.getThirdPeriodStartTime()).until(
+                    getEarlierTime(this.endTime, this.family.getThirdPeriodEndTime()), ChronoUnit.HOURS);
         }
     }
 
