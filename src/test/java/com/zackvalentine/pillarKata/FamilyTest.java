@@ -138,4 +138,14 @@ public class FamilyTest {
     public void toType_B() {
         assertThat(Family.toType("B"), is(equalTo(Family.FAMILYB)));
     }
+
+    @Test
+    public void toType_C() {
+        assertThat(Family.toType("C"), is(equalTo(Family.FAMILYC)));
+    }
+
+    @Test
+    public void toType_invalid() {
+        assertThat(Family.toType("Invalid String"), is(nullValue()));
+    }
 }

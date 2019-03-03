@@ -36,17 +36,17 @@ public class PayCalculatorTest {
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfStartTimeIsOutOfBounds() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(9, 20, "A");
+        new PayCalculator(9, 20, "A");
     }
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfEndTimeIsOutOfBounds() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(1, 8, "A");
+        new PayCalculator(1, 8, "A");
     }
 
     @Test(expected = IOException.class)
     public void throwsExceptionIfEndTimeIsNotAfterStartTime() throws IOException {
-        PayCalculator payCalculator = new PayCalculator(20, 17, "A");
+        new PayCalculator(20, 17, "A");
     }
 
     @Test
