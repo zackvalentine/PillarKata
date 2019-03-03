@@ -226,13 +226,13 @@ public class PayCalculatorTest {
     @Test
     public void getsTotalPayForFamilyB_allInSecondPeriod() throws IOException {
         PayCalculator payCalculator = new PayCalculator(23, 0, "B");
-        assertThat(payCalculator.getTotalPay(), is(equalTo(8*1)));
+        assertThat(payCalculator.getTotalPay(), is(equalTo(8)));
     }
 
     @Test
     public void getsTotalPayForFamilyB_startsInSecondPeriod() throws IOException {
         PayCalculator payCalculator = new PayCalculator(23, 3, "B");
-        assertThat(payCalculator.getTotalPay(), is(equalTo((8*1)+(16*3))));
+        assertThat(payCalculator.getTotalPay(), is(equalTo((8)+(16*3))));
     }
 
     @Test
@@ -256,6 +256,38 @@ public class PayCalculatorTest {
         assertThat(payCalculator.isShiftOutsideRatePeriod(
                 Family.FAMILYA.getSecondPeriodStartTime(),
                 Family.FAMILYA.getSecondPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftStartTimeAtOrAfterPeriodEndIfAfter() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(0, 1, "A");
+        assertThat(payCalculator.isShiftStartTimeAtOrAfterPeriodEnd(
+                Family.FAMILYA.getFirstPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftStartTimeAtOrAfterPeriodEndIfEqual() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(23, 0, "A");
+        assertThat(payCalculator.isShiftStartTimeAtOrAfterPeriodEnd(
+                Family.FAMILYA.getFirstPeriodEndTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftEndTimeAtOrBeforePeriodStartIfEqual() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 23, "A");
+        assertThat(payCalculator.isShiftEndTimeAtOrBeforePeriodStart(
+                Family.FAMILYA.getSecondPeriodStartTime()),
+                is(true));
+    }
+
+    @Test
+    public void returnsShiftEndTimeAtOrBeforePeriodStartIfBefore() throws IOException {
+        PayCalculator payCalculator = new PayCalculator(17, 22, "A");
+        assertThat(payCalculator.isShiftEndTimeAtOrBeforePeriodStart(
+                Family.FAMILYA.getSecondPeriodStartTime()),
                 is(true));
     }
 
