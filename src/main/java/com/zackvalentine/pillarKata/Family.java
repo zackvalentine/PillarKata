@@ -89,7 +89,7 @@ public enum Family {
     }
 
     public boolean isThirdRatePeriodAllowed() {
-        return false;
+        return thirdPeriodStartTime != null;
     }
 
     public static Family toType(String letter) {

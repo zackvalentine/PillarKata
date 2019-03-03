@@ -153,4 +153,14 @@ public class FamilyTest {
     public void returnsThirdRatePeriodNotAllowedForFamilyA() {
         assertThat(Family.FAMILYA.isThirdRatePeriodAllowed(), is(false));
     }
+
+    @Test
+    public void returnsThirdRatePeriodAllowedForFamilyB() {
+        assertThat(Family.FAMILYB.isThirdRatePeriodAllowed(), is(true));
+    }
+
+    @Test
+    public void returnsThirdRatePeriodNotAllowedForFamilyC() {
+        assertThat(Family.FAMILYC.isThirdRatePeriodAllowed(), is(false));
+    }
 }
